@@ -89,6 +89,13 @@
   - Edit, Resubmit, and Continue Messages with Conversation branching  
   - [Fork Messages & Conversations](https://www.librechat.ai/docs/features/fork) for Advanced Context control
 
+- 📚 **Prompt Library & Management**:  
+  - Create, organize, and share custom prompts with advanced versioning
+  - Group-based organization with categories, tags, and metadata
+  - Permission-based access control and community sharing
+  - Rich editor with markdown support and variable system
+  - Production/development version management for prompt workflows
+
 - 💬 **Multimodal & File Interactions**:  
   - Upload and analyze images with Claude 3, GPT-4.5, GPT-4o, o1, Llama-Vision, and Gemini 📸  
   - Chat with Files using Custom Endpoints, OpenAI, Azure, Anthropic, AWS Bedrock, & Google 🗃️
@@ -131,7 +138,7 @@
 
 ## 🪶 All-In-One AI Conversations with LibreChat
 
-LibreChat brings together the future of assistant AIs with the revolutionary technology of OpenAI's ChatGPT. Celebrating the original styling, LibreChat gives you the ability to integrate multiple AI models. It also integrates and enhances original client features such as conversation and message search, prompt templates and plugins.
+LibreChat brings together the future of assistant AIs with the revolutionary technology of OpenAI's ChatGPT. Celebrating the original styling, LibreChat gives you the ability to integrate multiple AI models. It also integrates and enhances original client features such as conversation and message search, prompt templates and plugins, and a comprehensive prompt library system for creating, organizing, and sharing custom prompts.
 
 With LibreChat, you no longer need to opt for ChatGPT Plus and can instead use free or pay-per-call APIs. We welcome contributions, cloning, and forking to enhance the capabilities of this advanced chatbot platform.
 

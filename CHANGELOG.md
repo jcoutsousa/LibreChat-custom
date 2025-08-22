@@ -11,6 +11,16 @@ All notable changes to this project will be documented in this file.
 
 ### ✨ New Features
 
+- 🗓️ feat: Add Comprehensive Prompt Library System by **@joanacsousa** in [#feature-prompt-library](https://github.com/danny-avila/LibreChat/pull/feature-prompt-library)
+  - ✨ Complete prompt management system with creation, editing, and versioning
+  - 🏗️ Backend API with MongoDB models and permission-based access control
+  - 🎨 Rich frontend components for prompt editing, grouping, and organization
+  - 🔐 Advanced permission system with ACL (Access Control Lists)
+  - 📁 Group-based organization with categories and metadata
+  - 🔄 Version control system with production/development versions
+  - 🌐 Community sharing and public prompt browsing
+  - 🔍 Advanced search, filtering, and tag management
+  - 📱 Responsive UI with markdown support and variable system
 - ✨ feat: implement search parameter updates by **@mawburn** in [#7151](https://github.com/danny-avila/LibreChat/pull/7151)
 - 🎏 feat: Add MCP support for Streamable HTTP Transport by **@benverhees** in [#7353](https://github.com/danny-avila/LibreChat/pull/7353)
 - 🔒 feat: Add Content Security Policy using Helmet middleware by **@rubentalstra** in [#7377](https://github.com/danny-avila/LibreChat/pull/7377)
