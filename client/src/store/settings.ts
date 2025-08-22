@@ -53,6 +53,9 @@ const localStorageAtoms = {
 
   // Speech settings
   conversationMode: atomWithLocalStorage('conversationMode', false),
+
+  // Prompt favorites
+  promptFavorites: atomWithLocalStorage<string[]>('promptFavorites', []),
   advancedMode: atomWithLocalStorage('advancedMode', false),
 
   speechToText: atomWithLocalStorage('speechToText', true),

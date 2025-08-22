@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { ListFilter, User, Share2 } from 'lucide-react';
+import { ListFilter, User, Share2, Globe } from 'lucide-react';
 import { SystemCategories } from 'librechat-data-provider';
 import { Dropdown, AnimatedSearchInput } from '@librechat/client';
 import type { Option } from '~/common';
@@ -33,6 +33,11 @@ export default function FilterPrompts({ className = '' }: { className?: string }
         value: SystemCategories.SHARED_PROMPTS,
         label: localize('com_ui_shared_prompts'),
         icon: <Share2 className="h-4 w-4 text-text-primary" />,
+      },
+      {
+        value: 'COMMUNITY_PROMPTS',
+        label: 'Community Prompts',
+        icon: <Globe className="h-4 w-4 text-text-primary" />,
       },
       { divider: true, value: null },
     ];

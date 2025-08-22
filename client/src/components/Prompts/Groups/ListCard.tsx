@@ -1,6 +1,9 @@
 import React from 'react';
+import { Heart } from 'lucide-react';
+import { useRecoilState } from 'recoil';
 import { Label } from '@librechat/client';
 import CategoryIcon from '~/components/Prompts/Groups/CategoryIcon';
+import store from '~/store';
 
 export default function ListCard({
   category,
@@ -8,18 +11,37 @@ export default function ListCard({
   snippet,
   onClick,
   children,
+  promptId,
+  showFavorites = true,
 }: {
   category: string;
   name: string;
   snippet: string;
   onClick?: React.MouseEventHandler<HTMLDivElement | HTMLButtonElement>;
   children?: React.ReactNode;
+  promptId?: string;
+  showFavorites?: boolean;
 }) {
+  const [promptFavorites, setPromptFavorites] = useRecoilState(store.promptFavorites);
+  
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement | HTMLButtonElement>) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       onClick?.(event as unknown as React.MouseEvent<HTMLDivElement | HTMLButtonElement>);
     }
+  };
+
+  const isFavorite = promptId ? promptFavorites.includes(promptId) : false;
+
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!promptId) return;
+    
+    setPromptFavorites(prev => 
+      prev.includes(promptId)
+        ? prev.filter(id => id !== promptId)
+        : [...prev, promptId]
+    );
   };
 
   return (
@@ -44,7 +66,23 @@ export default function ListCard({
             {name}
           </Label>
         </div>
-        <div>{children}</div>
+        <div className="flex items-center gap-2">
+          {showFavorites && promptId && (
+            <button
+              onClick={handleToggleFavorite}
+              className={`p-1 rounded transition-colors ${
+                isFavorite 
+                  ? 'text-red-500 hover:text-red-600' 
+                  : 'text-text-tertiary hover:text-red-500'
+              }`}
+              title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+              aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              <Heart size={16} fill={isFavorite ? 'currentColor' : 'none'} />
+            </button>
+          )}
+          {children}
+        </div>
       </div>
       <div
         id={`card-snippet-${name}`}

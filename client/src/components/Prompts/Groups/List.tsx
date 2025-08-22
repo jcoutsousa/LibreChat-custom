@@ -1,12 +1,15 @@
 import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { Button, Skeleton } from '@librechat/client';
 import { PermissionTypes, Permissions } from 'librechat-data-provider';
 import type { TPromptGroup, TStartupConfig } from 'librechat-data-provider';
 import DashGroupItem from '~/components/Prompts/Groups/DashGroupItem';
 import ChatGroupItem from '~/components/Prompts/Groups/ChatGroupItem';
+import CommunityBrowse from '~/components/Prompts/Groups/CommunityBrowse';
 import { useGetStartupConfig } from '~/data-provider';
 import { useLocalize, useHasAccess } from '~/hooks';
+import store from '~/store';
 
 export default function List({
   groups = [],
@@ -19,12 +22,22 @@ export default function List({
 }) {
   const navigate = useNavigate();
   const localize = useLocalize();
+  const categoryFilter = useRecoilValue(store.promptsCategory);
   const { data: startupConfig = {} as Partial<TStartupConfig> } = useGetStartupConfig();
   const { instanceProjectId } = startupConfig;
   const hasCreateAccess = useHasAccess({
     permissionType: PermissionTypes.PROMPTS,
     permission: Permissions.CREATE,
   });
+
+  // Show Community Browse if that filter is selected
+  if (categoryFilter === 'COMMUNITY_PROMPTS') {
+    return (
+      <div className="flex h-full flex-col">
+        <CommunityBrowse />
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-full flex-col">

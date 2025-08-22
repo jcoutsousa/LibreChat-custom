@@ -57,6 +57,7 @@ function ChatGroupItem({
         name={group.name}
         category={group.category ?? ''}
         onClick={onCardClick}
+        promptId={group._id}
         snippet={
           typeof group.oneliner === 'string' && group.oneliner.length > 0
             ? group.oneliner
